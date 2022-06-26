@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/mobile-style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="header-content">
+                <img src="./img/logo_header.svg" alt="logo" class="header-content__img-logo">
+                <img src="./img/menu-mobile.svg" alt="menu" class="header-content__img-menu">
+                <div class="header-content__block-menu">
+                    <nav class="header-content__menu">
+                        <ul>
+                            <li>О Находке</li>
+                            <li>Пройдите опрос</li>
+                            <li>Проекты Находки</li>
+                            <li>Обсуждения</li>
+                            <li>Новости</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div class="wrapper-form">
+            <div class="container-back">
+                <span class="container-back__arrow"></span> 
+                <span class="container-back__text">Назад</span>
+            </div>
+            <div class="container-title">Поделитесь идеей</div>
+    
+            <form id="form" action="#" method="post">
+                <div class="container-choice">
+                    <div class="container-choice__title"><span>1</span> Расскажите кем вы приходитесь городу</div>
+                    <div class="container-choice__variants citizen">
+                        <div class="container-choice__radio">
+                            <input name="citizen" type="radio" id="radio_citizen">
+                            <label for="radio_citizen">Местный житель</label>
+                        </div>
+                        <div class="container-choice__radio">
+                            <input name="citizen" type="radio" id="radio_guest">
+                            <label for="radio_guest">Гость города</label>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="container-choice">
+                    <div class="container-choice__title"><span>2</span> Ваш возраст</div>
+                    <div class="container-choice__variants age">
+                        <div class="container-choice__radio">
+                            <input name="age" type="radio" id="radio_age_1">
+                            <label for="radio_age_1">До 18</label>
+                        </div>
+                        <div class="container-choice__radio">
+                            <input name="age" type="radio" id="radio_age_2">
+                            <label for="radio_age_2">19-25</label>
+                        </div>
+                        <div class="container-choice__radio">
+                            <input name="age" type="radio" id="radio_age_3">
+                            <label for="radio_age_3">26-35</label>
+                        </div>
+                        <div class="container-choice__radio">
+                            <input name="age" type="radio" id="radio_age_4">
+                            <label for="radio_age_4">36-45</label>
+                        </div>
+                        <div class="container-choice__radio">                        
+                            <input name="age" type="radio" id="radio_age_5">
+                            <label for="radio_age_5">46-55</label>
+                        </div>
+                        <div class="container-choice__radio">        
+                            <input name="age" type="radio" id="radio_age_6">
+                            <label for="radio_age_6">56-65</label>
+                        </div>
+                        <div class="container-choice__radio">        
+                            <input name="age" type="radio" id="radio_age_7">
+                            <label for="radio_age_7">Больше 66</label>
+                        </div>
+                    </div>
+                </div>
+                <div  class="container-choice">
+                    <div class="container-choice__title"><span>3</span> Вы хотите рассказать</div>
+                    <div class="container-choice__variants tell">
+                        <div class="container-choice__radio">
+                            <input name="tell" type="radio" id="radio_tell_1">
+                            <label for="radio_tell_1">О проблеме и ее решении</label>
+                        </div>
+                        <div class="container-choice__radio">
+                            <input name="tell" type="radio" id="radio_tell_2">
+                            <label for="radio_tell_2">О идее города</label>
+                        </div>
+                        <div class="container-choice__radio">
+                            <input name="tell" type="radio" id="radio_tell_3">
+                            <label for="radio_tell_3">Об уникальных интересных местах Находки</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-place">
+                    <div class="container-place__title"><span>4</span> Загрузите картинку и укажите место на карте</div>
+                    <div class="container-place__data">
+                        <div id="map"></div>
+                        <img class="image-close map-close" src="./img/close.png" alt="close">
+                        <div>
+                            <img src="./img/location_icon.svg" alt="">
+                            <input id="input-location">
+                            <label id="label-location" for="input-location">Указать геолокацию</label>
+                        </div>
+                        <div>
+                            <img src="./img/Vector.svg" alt="" class="container-place__preview-image" style="width: 20px; height: 18px;">
+                            <input type="file" id="image-place" accept=".jpg,.jpeg,.png" class="container-place__image-place">
+                            <label for="image-place">Добавить изображение</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-idea">
+                    <div class="container-idea__title"><span>5</span> Укажите тему и расскажите идею</div>
+                    <div class="container-idea__text">
+                        <input type="text" placeholder="Тема">
+                        <textarea name="viewport" maxlength="240" placeholder="Идея"></textarea>
+                    </div>
+                    <div class="container-idea__consent">
+                        <input type="checkbox" id="checkbox_data">
+                        <label for="checkbox_data">Я согласен с 
+                            <a href="#">политикой обработки персональных данных</a>
+                        </label>
+                    </div>
+                </div>
+                <div class="block-button-send">
+                    <button class="button-send" type="button"><span>Отправить</span></button>
+                </div>
+            </form>
+        </div>
+
+        <footer class="footer-contant">
+            <div class="footer-contant__wrapper">
+                <img src="./img/logo_footer.svg" alt="">
+                <div>
+                    <nav class="footer-content__menu">
+                        <ul>
+                            <li>О Находке</li>
+                            <li>Пройдите опрос</li>
+                            <li>Проекты Находки</li>
+                            <li>Обсуждения</li>
+                            <li>Новости</li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <div class="footer-contant__block-email">
+                        <img src="./img/Email.svg" alt="">
+                        <a href="mailto:call@my-nakhodka.ru">call@my-nakhodka.ru</a>
+                    </div>
+                    <div class="footer-contant__personal-data">Политика обработки персональных данных</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="./js/main.js" type="module"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</body>
+</html>
